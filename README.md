@@ -11,13 +11,13 @@ H: Height of its shape.
 The example code is ```runme.py```.
 
 First import the function that do all the work.
-```
+```python
 import utils as ut
 ```
 
 Next, indicate which are the bounding boxes to be computed.
 Here I am going to use the shape for YOLO Object Detection.
-```
+```python
 # Here we are going to introduce the bounding box 1
 bb1 = tf.placeholder(tf.float32,shape=[None,13,13,5,4])
 # Here we are going to introduce the bounding box 2
@@ -25,17 +25,17 @@ bb2 = tf.placeholder(tf.float32,shape=[None,13,13,5,4])
 ```
 
 Then, create the graph that will do the IoU.
-```
+```python
 iou_res = ut.iou(bb1,bb2)
 ```
 
 And the session to run all.
-```
+```python
 sess = tf.Session()
 ```
 
 Lets createthe values to compute
-```
+```python
 a = np.zeros([1,13,13,5,4])
 a[0,0,0,0] = [0.5,0.5,1,1] # Square with centroid at (0.5,0.5)
                            # and shape (1,1) -> (w,h)
@@ -45,7 +45,7 @@ b[0,0,0,0] = [-0.5,-0.5,2,2] # Square with centroid at (-0.5,-0.5)
 ```
 
 And compute everything.
-```
+```python
 iou = sess.run(iou_res,feed_dict={bb1:a,bb2:b})
 print(iou[0,0,0,0]) # Prints the IoU 
 ```
