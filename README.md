@@ -2,10 +2,14 @@
 Method to do intersection over union with N number of inputs using tensorflow.
 
 The function requires two tensors, each one containing the bounding boxes where the last dimension has 4 elements -> [Xc,Yc,W,H].
-Xc: X position of the centroid.
-Yc: Y position of the centroid
-W: Width of its shape.
-H: Height of its shape.
+
+- Xc: X position of the centroid.
+
+- Yc: Y position of the centroid
+
+- W: Width of its shape.
+
+- H: Height of its shape.
 
 # How to use it
 The example code is ```runme.py```.
